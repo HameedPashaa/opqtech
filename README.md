@@ -1,0 +1,2 @@
+# opqtech
+Shell script 
