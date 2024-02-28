@@ -17,4 +17,6 @@ while read -r line; do
     fi
 done <<< "$data"
 echo "City with maximum sales: $max_city ($max_sales)"
+
+#hseifoijoifoi
 echo "Total number of sales: $total_sales"
