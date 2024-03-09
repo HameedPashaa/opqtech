@@ -16,10 +16,11 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                         // script {
-                 //   def scannerHome = tool 'Sonar-qube1'
-                   // withSonarQubeEnv('Sonar_qube') {
-                        sh "mvn sonar:sonar"
+                    def scannerHome = tool 'sonarqube'
+                    // Specify your SonarQube user token for authentication
+                    def sonarLogin = 'sqa_efb249ee8f3f1e567d70cabad7afae870c23da82'
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=my-project_key -Dsonar.login=${sonarLogin}"
                     }
                 }
             }
