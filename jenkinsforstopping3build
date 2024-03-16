@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    
+    environment {
+        SKIP_STAGE_3 = true
+    }
+    
+    stages {
+        stage('Stage 1') {
+            steps {
+                // Your build steps for stage 1
+            }
+        }
+        
+        stage('Stage 2') {
+            steps {
+                // Your build steps for stage 2
+            }
+        }
+        
+        stage('Stage 3') {
+            when {
+                expression { !env.SKIP_STAGE_3 }
+            }
+            steps {
+                // Your build steps for stage 3
+            }
+        }
+        
+        stage('Stage 4') {
+            steps {
+                // Your build steps for stage 4
+            }
+        }
+    }
+}
